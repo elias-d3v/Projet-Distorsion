@@ -1,0 +1,45 @@
+<?php if (isset($_SESSION['loggedUser']) || !empty($_SESSION['loggedUser']))
+{
+    header('Location: index.php?route=home');
+    exit();
+
+}
+?>
+
+<main class="container-connexion">
+    <h1>Connexion</h1>
+    <form class="form-connexion" action="index.php?route=checkUser" method="POST">
+        <div class="form-group">
+            <label for="exampleInputUsername1">Nom d'utilisateur</label>
+            <input type="name" 
+            class="form-control" 
+            id="exampleInputName1" 
+            aria-describedby="nameHelp" 
+            placeholder="Entrez votre nom d'utilisateur" 
+            name="username"
+            >
+            <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre adresse mail avec des services tiers.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe</label>
+            <input 
+            type="password" 
+            class="form-control" 
+            id="exampleInputPassword1" 
+            placeholder="Entrez votre mot de passe"
+            name="password"
+            >
+        </div>
+
+        <button type="submit">Me connecter</button>
+
+    </form>
+
+    <form class="form-connexion second-elem">
+        <p>Je ne suis pas encore incrit. 
+            <a href="index.php?route=register">M'inscrire !</a>
+        </p>
+    </form>
+</main>
+

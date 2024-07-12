@@ -1,0 +1,88 @@
+<?php 
+
+?>
+
+<main>
+    <aside class="chat-nav">
+
+        <div class="ajout">
+            <a href="index.php?route=form">
+                Ajouter une <b>catégorie</b> ou un <b>salon</b>
+            </a>
+        </div>
+        
+        <h2 class="chat-nav-name">
+            Catégories
+        </h2>
+        
+        
+        <ul class="categories-list">
+            <?php foreach($categories as $category): ?>
+                <div class="category">
+                    <h3 class="category-name">
+                        <?= $category['name'] ?> :
+                    
+                    </h3>
+                    
+                    <ul class="rooms">
+                        <?php foreach($rooms as $room): ?>
+                            <?php if($room['category_id'] === $category['id']): ?>
+                                <li class="room-item"><a class="room-name 
+
+
+                                <?php if (!isset($_GET['roomid']))
+
+                                    echo '';
+                                    
+                                elseif($_GET['roomid'] == $room['id'])
+
+                                    echo 'page-active';
+                                
+                                ?>"
+                                
+                                href="index.php?route=home&roomid=<?= $room['id'] ?>"> <?= $room['name'] ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endforeach; ?>
+        </ul>    
+    </aside>
+            
+    <?php if(isset($_GET['roomid']) || !empty($_GET['roomid'])) : ?>
+    <div class="chat">
+        <ul class="chat-messages-container">
+            <?php if (empty($messages)) : ?>
+                <li>Il n'y a pas de messages</li>
+            
+                <?php else : ?>
+                <?php foreach($messages as $message) : ?>
+                    <li>
+                        <span>[<?= date('H:i', strtotime($message['created_at'])) ?>]</span>
+                        <?= $message['content'] ?>
+                        
+                    </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+        
+        <?php if (array_key_exists( 'roomid' , $_GET)) : ?>
+        <form class="chat-bar" action="index.php?route=sendMessage&roomid=<?= $_GET['roomid'] ?>" method="POST">
+            <label>
+                Message 
+                <input class="input" type="text" name="content" />
+            </label>
+
+            <button class="submit-button" type="submit">Envoyer</button>
+        </form>
+        <?php endif; ?>
+    </div>
+    <?php else : ?>
+        <section class="bienvenue">
+
+            <h2>Bienvenu sur Distorsion</h2>
+
+        </section>
+    <?php endif; ?>
+
+</main>

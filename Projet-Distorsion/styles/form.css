@@ -1,0 +1,116 @@
+
+
+.formulaire-split {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    padding: 10px;
+
+}
+
+.cat-split, .room-split {
+    width: 50%;
+    
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--bg-2);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    margin-bottom: 5px;
+}
+form input[type="text"],
+form select {
+    padding: 10px;
+    border: 1px solid var(--strokes);
+    border-radius: 5px;
+    width: 100%;
+    background-color: #332e2e2c;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--bg);
+    border-radius:5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1d1c1c;
+}
+
+.form-group label{
+    font-size: 1.6rem;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid var(--strokes);
+    border-radius: 5px;
+}
+
+.form-control {
+    font-size: 1.6rem;
+}
+
+
+
+/* FORMULAIRE PAGE CONNEXION | BOOTSTRAP */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.container-connexion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.form-connexion {
+    width: 35%;
+
+}
+
+.form-connexion button {
+    font-size: 1.3rem;
+    width: 25%;
+    margin: auto;
+}
+
+.form-control {
+    font-size: 1.2rem;
+}
+
+small {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.second-elem {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.second-elem a {
+    text-decoration: underline;
+}
+.second-elem a:hover {
+    color: var(--strokes);
+}
+
+.alert {
+    margin-top: 1rem;
+}

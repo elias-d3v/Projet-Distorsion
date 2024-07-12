@@ -1,0 +1,35 @@
+<main class="formulaire-split">
+    <section class="cat-split">
+        <h4>Ajouter une catégorie</h4>
+
+        <form action="index.php?route=addCategory" method="POST">
+            <input class="form-input" type="text" name="categoryName" placeholder="Nom de la catégorie" />
+    
+            <button type="submit">Ajouter</button>
+        </form>
+    </section>
+        
+    <section class="room-split">
+        <h4>Ajouter un salon</h4>
+
+        <form action="index.php?route=addRoom" method="POST">
+            <input type="text" class="form-input" placeholder="Nom du salon" name="roomName">
+
+            <div class="form-group">
+                <label> Catégories
+                    <select name="categoryId">
+                        <?php foreach ($categories as $category) : ?>
+                            <option value=<?= $category['id'] ?> >
+                                <?= $category['name'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+            </div>
+
+            <button type="submit">Ajouter</button>
+        </form>
+    </section>
+</main>
+
+
